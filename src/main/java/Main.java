@@ -1,5 +1,6 @@
 import entity.Customer;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 public class Main {
     public static void main(String[] args)  {
@@ -9,8 +10,9 @@ public class Main {
         customer.setAddress("Kalutara");
 
         Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
         session.persist(customer);
-        session.beginTransaction();
+        transaction.commit();
         session.close();
     }
 }
