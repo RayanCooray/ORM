@@ -10,7 +10,7 @@ public class Main {
 
         Session session = FactoryConfiguration.getInstance().getSession();
         session.persist(customer);
-        //session.beginTransaction();
+        session.beginTransaction();
         session.close();
     }
 }
